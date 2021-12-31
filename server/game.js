@@ -20,7 +20,7 @@ function createGameState() {
         y: 10,
       },
       vel: {
-        x: 0,
+        x: 1,
         y: 0,
       },
       snake: [
@@ -59,8 +59,8 @@ function gameLoop(state) {
   playerOne.pos.x += playerOne.vel.x;
   playerOne.pos.y += playerOne.vel.y;
 
-  playerTwo.pos.x += playerOne.vel.x;
-  playerTwo.pos.y += playerOne.vel.y;
+  playerTwo.pos.x += playerTwo.vel.x;
+  playerTwo.pos.y += playerTwo.vel.y;
 
   if (playerOne.pos.x < 0 || playerOne.pos.x > GRID_SIZE || playerOne.pos.y < 0 || playerOne.pos.y > GRID_SIZE) {
     return 2;
@@ -132,9 +132,6 @@ function randomFood(state) {
 
 function getUpdatedVelocity(keyCode) {
   switch (keyCode) {
-    case 32: { // space bar
-      return { x: 0, y: 0 };
-    }
     case 37: { // left
       return { x: -1, y: 0 };
     }
