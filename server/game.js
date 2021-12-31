@@ -59,8 +59,8 @@ function gameLoop(state) {
   playerOne.pos.x += playerOne.vel.x;
   playerOne.pos.y += playerOne.vel.y;
 
-  playerTwo.pos.x += playerTwo.vel.x;
-  playerTwo.pos.y += playerTwo.vel.y;
+  playerTwo.pos.x += playerOne.pos.x;
+  playerTwo.pos.y += playerOne.pos.y;
 
   if (playerOne.pos.x < 0 || playerOne.pos.x > GRID_SIZE || playerOne.pos.y < 0 || playerOne.pos.y > GRID_SIZE) {
     return 2;
