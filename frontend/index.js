@@ -1,6 +1,7 @@
 const BG_COLOUR = '#231f20';
 const SNAKE_COLOUR = '#c2c2c2';
-const FOOD_COLOUR = '#e66916';
+//const FOOD_COLOUR = '#e66916';
+const FOOD_COLOUR = '#0000FF';
 
 const socket = io('https://sleepy-island-33889.herokuapp.com/');
 

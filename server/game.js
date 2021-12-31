@@ -20,7 +20,7 @@ function createGameState() {
         y: 10,
       },
       vel: {
-        x: 1,
+        x: 0,
         y: 0,
       },
       snake: [
@@ -111,8 +111,10 @@ function gameLoop(state) {
 
 function randomFood(state) {
   food = {
-    x: Math.floor(Math.random() * GRID_SIZE),
-    y: Math.floor(Math.random() * GRID_SIZE),
+    // x: Math.floor(Math.random() * GRID_SIZE),
+    // y: Math.floor(Math.random() * GRID_SIZE),
+    x: 0,
+    y: 0,
   }
 
   for (let cell of state.players[0].snake) {
