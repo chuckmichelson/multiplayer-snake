@@ -20,13 +20,13 @@ function createGameState() {
         y: 10,
       },
       vel: {
-        x: 0,
+        x: 1,
         y: 0,
       },
       snake: [
-        {x: 11, y: 10},
-        {x: 12, y: 10},
-        {x: 13, y: 10},
+        {x: 1, y: 10},
+        {x: 2, y: 10},
+        {x: 3, y: 10},
       ],
     }, {
       pos: {
@@ -38,15 +38,16 @@ function createGameState() {
         y: 0,
       },
       snake: [
-        {x: 11, y: 15},
-        {x: 12, y: 15},
-        {x: 13, y: 15},
+        {x: 20, y: 10},
+        {x: 19, y: 10},
+        {x: 18, y: 10},
       ],
     }],
     food: {},
     gridsize: GRID_SIZE,
   };
 }
+
 
 function gameLoop(state) {
   if (!state) {
