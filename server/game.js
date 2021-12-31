@@ -100,6 +100,8 @@ function gameLoop(state) {
       if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
         return 1;
       }
+    playerOne.snake.push({ ...playerOne.pos });
+    playerOne.snake.shift();
     }
 
     // playerTwo.snake.push({ ...playerTwo.pos });
