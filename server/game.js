@@ -84,23 +84,23 @@ function gameLoop(state) {
     randomFood(state);
   }
 
-  // if (playerOne.vel.x || playerOne.vel.y) {
-  //   for (let cell of playerOne.snake) {
-  //     if (cell.x === playerOne.pos.x && cell.y === playerOne.pos.y) {
-  //       return 2;
-  //     }
-  //   }
+  if (playerOne.vel.x || playerOne.vel.y) {
+    for (let cell of playerOne.snake) {
+      if (cell.x === playerOne.pos.x && cell.y === playerOne.pos.y) {
+        return 2;
+      }
+    }
 
     playerOne.snake.push({ ...playerOne.pos });
     playerOne.snake.shift();
   }
 
-  // if (playerTwo.vel.x || playerTwo.vel.y) {
-  //   for (let cell of playerTwo.snake) {
-  //     if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
-  //       return 1;
-  //     }
-  //   }
+  if (playerTwo.vel.x || playerTwo.vel.y) {
+    for (let cell of playerTwo.snake) {
+      if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
+        return 1;
+      }
+    }
 
     playerTwo.snake.push({ ...playerTwo.pos });
     playerTwo.snake.shift();
