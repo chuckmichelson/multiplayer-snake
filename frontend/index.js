@@ -4,7 +4,7 @@ const SNAKE_COLOUR = '#c2c2c2';
 const FOOD_COLOUR = '#0000FF';
 
 // const socket = io('https://sleepy-island-33889.herokuapp.com/');
-const socket = io('/Users/chuckmichelson/Documents/JavaScript/multiplayer-snake/multiplayerSnake/server/');
+const socket = io('/Users/chuckmichelson/Documents/JavaScript/multiplayer-snake/multiplayerSnake/');
 
 socket.on('init', handleInit);
 socket.on('gameState', handleGameState);
