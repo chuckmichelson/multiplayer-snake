@@ -24,9 +24,9 @@ function createGameState() {
         y: 0,
       },
       snake: [
-        {x: 1, y: 10},
-        {x: 2, y: 10},
-        {x: 3, y: 10},
+        {x: 11, y: 10},
+        {x: 12, y: 10},
+        {x: 13, y: 10},
       ],
     }, {
       pos: {
