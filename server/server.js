@@ -1,5 +1,5 @@
 const io = require('socket.io')();
-const { initGame, gameLoop, getUpdatedVelocity } = require('./game');
+const { initGame, gameLoop, getUpdatedVelocity } = require('./game2');
 const { FRAME_RATE } = require('./constants');
 const { makeid } = require('./utils');
 
