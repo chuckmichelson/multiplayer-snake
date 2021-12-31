@@ -56,11 +56,11 @@ function gameLoop(state) {
   const playerOne = state.players[0];
   const playerTwo = state.players[1];
 
-  playerOne.pos.x += playerOne.vel.x + playerTwo.vel.x;
-  playerOne.pos.y += playerOne.vel.y + playerTwo.vel.y;
+  playerOne.pos.x += (playerOne.vel.x + playerTwo.vel.x);
+  playerOne.pos.y += (playerOne.vel.y + playerTwo.vel.y);
 
-  playerTwo.pos.x += 0;
-  playerTwo.pos.y += 0;
+  playerTwo.pos.x += playerOne.vel.x;
+  playerTwo.pos.y += playerOne.vel.y;
 
   if (playerOne.pos.x < 0 || playerOne.pos.x > GRID_SIZE || playerOne.pos.y < 0 || playerOne.pos.y > GRID_SIZE) {
     return 2;
@@ -132,7 +132,7 @@ function randomFood(state) {
 
 function getUpdatedVelocity(keyCode) {
   switch (keyCode) {
-    case 32: { // left
+    case 32: { // space bar
       return { x: 0, y: 0 };
     }
     case 37: { // left
