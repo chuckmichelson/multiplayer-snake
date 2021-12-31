@@ -66,9 +66,9 @@ function gameLoop(state) {
     return 2;
   }
 
-  if (playerTwo.pos.x < 0 || playerTwo.pos.x > GRID_SIZE || playerTwo.pos.y < 0 || playerTwo.pos.y > GRID_SIZE) {
-    return 1;
-  }
+  // if (playerTwo.pos.x < 0 || playerTwo.pos.x > GRID_SIZE || playerTwo.pos.y < 0 || playerTwo.pos.y > GRID_SIZE) {
+  //   return 1;
+  // }
 
   if (state.food.x === playerOne.pos.x && state.food.y === playerOne.pos.y) {
     playerOne.snake.push({ ...playerOne.pos });
@@ -95,15 +95,15 @@ function gameLoop(state) {
     playerOne.snake.shift();
   }
 
-  if (playerTwo.vel.x || playerTwo.vel.y) {
-    for (let cell of playerTwo.snake) {
-      if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
-        return 1;
-      }
-    }
+  // if (playerTwo.vel.x || playerTwo.vel.y) {
+  //   for (let cell of playerTwo.snake) {
+  //     if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
+  //       return 1;
+  //     }
+  //   }
 
-    playerTwo.snake.push({ ...playerTwo.pos });
-    playerTwo.snake.shift();
+    // playerTwo.snake.push({ ...playerTwo.pos });
+    // playerTwo.snake.shift();
   }
 
   return false;
