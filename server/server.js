@@ -1,7 +1,7 @@
 const io = require('socket.io')();
-const { initGame, gameLoop, getUpdatedVelocity } = require('./game2');
+const { initGame, gameLoop, getUpdatedVelocity } = require('./game');
 const { FRAME_RATE } = require('./constants');
-const { makeid } = require('./utils');
+const { makeid } = require('./utils2');
 
 const state = {};
 const clientRooms = {};
