@@ -20,7 +20,7 @@ function createGameState() {
         y: 10,
       },
       vel: {
-        x: 0,
+        x: 1,
         y: 0,
       },
       snake: [
@@ -47,7 +47,6 @@ function createGameState() {
     gridsize: GRID_SIZE,
   };
 }
-
 
 function gameLoop(state) {
   if (!state) {
