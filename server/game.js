@@ -61,22 +61,12 @@ function gameLoop(state) {
     playerOne.pos.y += state.players[i].vel.y;
   }
 
-  // playerOne.pos.x += state.players[0].vel.x;
-  // playerOne.pos.y += state.players[0].vel.y;
-
-  // playerOne.pos.x += state.players[1].vel.x;
-  // playerOne.pos.y += state.players[1].vel.y;
-
-  // playerTwo.pos.x += playerTwo.vel.x;
-  // playerTwo.pos.y += playerTwo.vel.y;
 
   if (playerOne.pos.x < 0 || playerOne.pos.x > GRID_SIZE || playerOne.pos.y < 0 || playerOne.pos.y > GRID_SIZE) {
     return 2;
   }
 
-  // if (playerTwo.pos.x < 0 || playerTwo.pos.x > GRID_SIZE || playerTwo.pos.y < 0 || playerTwo.pos.y > GRID_SIZE) {
-  //   return 1;
-  // }
+
 
   if (state.food.x === playerOne.pos.x && state.food.y === playerOne.pos.y) {
     playerOne.snake.push({ ...playerOne.pos });
@@ -85,12 +75,6 @@ function gameLoop(state) {
     randomFood(state);
   }
 
-  // if (state.food.x === playerTwo.pos.x && state.food.y === playerTwo.pos.y) {
-  //   playerOne.snake.push({ ...playerOne.pos });
-  //   playerOne.pos.x += playerOne.vel.x;
-  //   playerOne.pos.y += playerOne.vel.y;
-  //   randomFood(state);
-  // }
 
   if (playerOne.vel.x || playerOne.vel.y) {
     for (let cell of playerOne.snake) {
@@ -128,12 +112,6 @@ function randomFood(state) {
       return randomFood(state);
     }
   }
-
-  // for (let cell of state.players[1].snake) {
-  //   if (cell.x === food.x && cell.y === food.y) {
-  //     return randomFood(state);
-  //   }
-  // }
 
   state.food = food;
 }
