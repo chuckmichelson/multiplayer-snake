@@ -123,11 +123,11 @@ function randomFood(state) {
     }
   }
 
-  for (let cell of state.players[1].snake) {
-    if (cell.x === food.x && cell.y === food.y) {
-      return randomFood(state);
-    }
-  }
+  // for (let cell of state.players[1].snake) {
+  //   if (cell.x === food.x && cell.y === food.y) {
+  //     return randomFood(state);
+  //   }
+  // }
 
   state.food = food;
 }
