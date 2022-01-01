@@ -70,7 +70,7 @@ function gameLoop(state) {
   }
 
   if (playerTwo.pos.x < 0 || playerTwo.pos.x > GRID_SIZE || playerTwo.pos.y < 0 || playerTwo.pos.y > GRID_SIZE) {
-    return 1;
+    // return 1;
   }
 
   if (state.food.x === playerOne.pos.x && state.food.y === playerOne.pos.y) {
@@ -101,7 +101,7 @@ function gameLoop(state) {
   if (playerTwo.vel.x || playerTwo.vel.y) {
     for (let cell of playerTwo.snake) {
       if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
-        return 1;
+        // return 1;
       }
     }
 
