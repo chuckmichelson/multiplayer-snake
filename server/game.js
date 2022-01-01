@@ -56,11 +56,11 @@ function gameLoop(state) {
   const playerOne = state.players[0];
   const playerTwo = state.players[1];
 
-  playerOne.pos.x += playerOne.vel.x;
-  playerOne.pos.y += playerOne.vel.y;
+  playerOne.pos.x += state.players[0].vel.x;
+  playerOne.pos.y += state.players[0].vel.y;
 
-  playerOne.pos.x += playerTwo.vel.x;
-  playerOne.pos.y += playerTwo.vel.y;
+  playerOne.pos.x += state.players[1].vel.x;
+  playerOne.pos.y += state.players[1].vel.y;
 
   // playerTwo.pos.x += playerTwo.vel.x;
   // playerTwo.pos.y += playerTwo.vel.y;
