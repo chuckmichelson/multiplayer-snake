@@ -76,7 +76,7 @@ function gameLoop(state) {
   if (state.food.x === playerOne.pos.x && state.food.y === playerOne.pos.y) {
     playerOne.snake.push({ ...playerOne.pos });
     score = state.players[0].snake.length
-    document.getElementById('scoreDisplay').innerText = score
+    // document.getElementById('scoreDisplay').innerText = score
     playerOne.pos.x += playerOne.vel.x;
     playerOne.pos.y += playerOne.vel.y;
     randomFood(state);
