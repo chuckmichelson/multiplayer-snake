@@ -54,21 +54,21 @@ function gameLoop(state) {
   }
 
   const playerOne = state.players[0];
-  const playerTwo = state.players[1];
+  // const playerTwo = state.players[1];
 
   playerOne.pos.x += (playerOne.vel.x + playerTwo.vel.x);
   playerOne.pos.y += (playerOne.vel.y + playerTwo.vel.y);
 
-  playerTwo.pos.x += playerTwo.vel.x;
-  playerTwo.pos.y += playerTwo.vel.y;
+  // playerTwo.pos.x += playerTwo.vel.x;
+  // playerTwo.pos.y += playerTwo.vel.y;
 
   if (playerOne.pos.x < 0 || playerOne.pos.x > GRID_SIZE || playerOne.pos.y < 0 || playerOne.pos.y > GRID_SIZE) {
     return 2;
   }
 
-  if (playerTwo.pos.x < 0 || playerTwo.pos.x > GRID_SIZE || playerTwo.pos.y < 0 || playerTwo.pos.y > GRID_SIZE) {
-    // return 1;
-  }
+  // if (playerTwo.pos.x < 0 || playerTwo.pos.x > GRID_SIZE || playerTwo.pos.y < 0 || playerTwo.pos.y > GRID_SIZE) {
+  //   // return 1;
+  // }
 
   if (state.food.x === playerOne.pos.x && state.food.y === playerOne.pos.y) {
     playerOne.snake.push({ ...playerOne.pos });
@@ -77,14 +77,14 @@ function gameLoop(state) {
     randomFood(state);
   }
 
-  if (state.food.x === playerTwo.pos.x && state.food.y === playerTwo.pos.y) {
-    playerTwo.snake.push({ ...playerTwo.pos });
-    playerTwo.pos.x += playerTwo.vel.x;
-    playerTwo.pos.y += playerTwo.vel.y;
-    randomFood(state);
-  }
+  // if (state.food.x === playerTwo.pos.x && state.food.y === playerTwo.pos.y) {
+  //   playerTwo.snake.push({ ...playerTwo.pos });
+  //   playerTwo.pos.x += playerTwo.vel.x;
+  //   playerTwo.pos.y += playerTwo.vel.y;
+  //   randomFood(state);
+  // }
 
-  if (playerOne.vel.x || playerOne.vel.y || playerTwo.vel.x || playerTwo.vel.y) {
+  if (playerOne.vel.x || playerOne.vel.y) {
     for (let cell of playerOne.snake) {
       if (cell.x === playerOne.pos.x && cell.y === playerOne.pos.y) {
         return 2;
@@ -95,14 +95,14 @@ function gameLoop(state) {
     playerOne.snake.shift();
   }
 
-  if (playerTwo.vel.x || playerTwo.vel.y) {
-    for (let cell of playerTwo.snake) {
-      if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
-        //return 1;
-      }
-    playerOne.snake.push({ ...playerOne.pos });
-    playerOne.snake.shift();
-    }
+  // if (playerTwo.vel.x || playerTwo.vel.y) {
+  //   for (let cell of playerTwo.snake) {
+  //     if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
+  //       //return 1;
+  //     }
+  //   playerOne.snake.push({ ...playerOne.pos });
+  //   playerOne.snake.shift();
+  //   }
 
     // playerOne.snake.push({ ...playerOne.pos });
     // playerOne.snake.shift();
