@@ -54,6 +54,9 @@ function gameLoop(state) {
     return;
   }
 
+  score = state.players[0].snake.length
+  document.getElementById('scoreDisplay').innerText = score
+
   const playerOne = state.players[0];
   const playerTwo = state.players[1];
 
@@ -75,7 +78,7 @@ function gameLoop(state) {
 
   if (state.food.x === playerOne.pos.x && state.food.y === playerOne.pos.y) {
     playerOne.snake.push({ ...playerOne.pos });
-    score = state.players[0].snake.length
+    // score = state.players[0].snake.length
     // document.getElementById('scoreDisplay').innerText = score
     playerOne.pos.x += playerOne.vel.x;
     playerOne.pos.y += playerOne.vel.y;
