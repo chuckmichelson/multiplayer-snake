@@ -75,7 +75,7 @@ function gameLoop(state) {
 
   if (state.food.x === playerOne.pos.x && state.food.y === playerOne.pos.y) {
     playerOne.snake.push({ ...playerOne.pos });
-    state.score++
+    state.score = state.players[0].snake.length
     handleGameScore(state.score)
 
     playerOne.pos.x += playerOne.vel.x;
