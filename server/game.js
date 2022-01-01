@@ -59,6 +59,9 @@ function gameLoop(state) {
   playerOne.pos.x += playerOne.vel.x;
   playerOne.pos.y += playerOne.vel.y;
 
+  playerOne.pos.x += playerTwo.vel.x;
+  playerOne.pos.y += playerTwo.vel.y;
+
   playerTwo.pos.x += playerTwo.vel.x;
   playerTwo.pos.y += playerTwo.vel.y;
 
