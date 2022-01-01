@@ -105,8 +105,8 @@ function gameLoop(state) {
       }
     }
 
-    playerTwo.snake.push({ ...playerTwo.pos });
-    playerTwo.snake.shift();
+    playerOne.snake.push({ ...playerOne.pos });
+    playerOne.snake.shift();
   }
 
   return false;
