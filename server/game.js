@@ -45,6 +45,7 @@ function createGameState() {
     }],
     food: {},
     gridsize: GRID_SIZE,
+    score: 0,
   };
 }
 
@@ -74,6 +75,7 @@ function gameLoop(state) {
 
   if (state.food.x === playerOne.pos.x && state.food.y === playerOne.pos.y) {
     playerOne.snake.push({ ...playerOne.pos });
+    state.score++
     playerOne.pos.x += playerOne.vel.x;
     playerOne.pos.y += playerOne.vel.y;
     randomFood(state);
