@@ -85,12 +85,12 @@ function gameLoop(state) {
     randomFood(state);
   }
 
-  if (state.food.x === playerTwo.pos.x && state.food.y === playerTwo.pos.y) {
-    playerOne.snake.push({ ...playerOne.pos });
-    playerOne.pos.x += playerOne.vel.x;
-    playerOne.pos.y += playerOne.vel.y;
-    randomFood(state);
-  }
+  // if (state.food.x === playerTwo.pos.x && state.food.y === playerTwo.pos.y) {
+  //   playerOne.snake.push({ ...playerOne.pos });
+  //   playerOne.pos.x += playerOne.vel.x;
+  //   playerOne.pos.y += playerOne.vel.y;
+  //   randomFood(state);
+  // }
 
   if (playerOne.vel.x || playerOne.vel.y) {
     for (let cell of playerOne.snake) {
