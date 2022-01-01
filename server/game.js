@@ -55,7 +55,7 @@ function gameLoop(state) {
   }
 
   score = state.players[0].snake.length
-  document.getElementById('scoreDisplay').innerText = score
+  // document.getElementById('scoreDisplay').innerText = score
 
   const playerOne = state.players[0];
   const playerTwo = state.players[1];
