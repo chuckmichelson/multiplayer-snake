@@ -8,7 +8,7 @@ module.exports = {
 
 function initGame() {
   const state = createGameState()
-  state = addPlayer(1)
+  state = addPlayer()
   randomFood(state);
   return state;
 }
@@ -36,7 +36,7 @@ function createGameState() {
   };
 }
 
-function addPlayer(playerNum) {
+function addPlayer() {
   newPlayer: [{
       pos: {
         x: 18,
