@@ -8,6 +8,7 @@ module.exports = {
 
 function initGame() {
   const state = createGameState()
+  state = addPlayer(1)
   randomFood(state);
   return state;
 }
@@ -28,7 +29,15 @@ function createGameState() {
         {x: 2, y: 10},
         {x: 3, y: 10},
       ],
-    }, {
+    },],
+    food: {},
+    gridsize: GRID_SIZE,
+    score: 0,
+  };
+}
+
+function addPlayer(playerNum) {
+  newPlayer: [{
       pos: {
         x: 18,
         y: 10,
@@ -42,12 +51,11 @@ function createGameState() {
         {x: 19, y: 10},
         {x: 18, y: 10},
       ],
-    }],
-    food: {},
-    gridsize: GRID_SIZE,
-    score: 0,
-  };
+  }]
+  state.players += newPlayer
+  return state
 }
+
 
 function gameLoop(state) {
   if (!state) {
