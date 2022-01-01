@@ -20,6 +20,8 @@ const newGameBtn = document.getElementById('newGameButton');
 const joinGameBtn = document.getElementById('joinGameButton');
 const gameCodeInput = document.getElementById('gameCodeInput');
 const gameCodeDisplay = document.getElementById('gameCodeDisplay');
+const scoreDisplay = document.getElementById('scoreDisplay');
+
 
 newGameBtn.addEventListener('click', newGame);
 joinGameBtn.addEventListener('click', joinGame);
@@ -113,7 +115,7 @@ function handleGameCode(gameCode) {
 }
 
 function handleGameScore(score) {
-  scoreDisplay.innerText = score;
+  scoreDisplay.innerText = state.score;
 }
 
 function handleUnknownCode() {
