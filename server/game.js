@@ -13,6 +13,7 @@ function initGame() {
 }
 
 function createGameState() {
+  console.log("made it to createGameState")
   return {
     players: [{
       pos: {
