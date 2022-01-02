@@ -81,21 +81,23 @@ function gameLoop(state) {
     }
   }
   var max_arrow_val = Math.max(nRIGHT, nLEFT, nUP, nDOWN)
-  if (max_arrow_val === nRIGHT ) {
-    playerOne.vel.x = 1;
-    playerOne.vel.y = 0;
-  }
-  if (max_arrow_val === nLEFT ) {
-    playerOne.vel.x = -1;
-    playerOne.vel.y = 0;
-  }
-  if (max_arrow_val === nUP ) {
-    playerOne.vel.x = 0;
-    playerOne.vel.y = 1;
-  }
-  if (max_arrow_val === nDOWN ) {
-    playerOne.vel.x = 0;
-    playerOne.vel.y = -1;
+  if (max_arrow_val != 0) {
+    if (max_arrow_val === nRIGHT ) {
+      playerOne.vel.x = 1;
+      playerOne.vel.y = 0;
+    }
+    if (max_arrow_val === nLEFT ) {
+      playerOne.vel.x = -1;
+      playerOne.vel.y = 0;
+    }
+    if (max_arrow_val === nUP ) {
+      playerOne.vel.x = 0;
+      playerOne.vel.y = 1;
+    }
+    if (max_arrow_val === nDOWN ) {
+      playerOne.vel.x = 0;
+      playerOne.vel.y = -1;
+    }
   }
   playerOne.pos.x += playerOne.vel.x;
   playerOne.pos.y += playerOne.vel.y;
