@@ -6,7 +6,7 @@ const { makeid } = require('./utils');
 const state = {};
 const clientRooms = {};
 
-io.on('connection', client => {
+io.on('connection', client => {gameLoop
 
   client.on('keydown', handleKeydown);
   client.on('newGame', handleNewGame);
@@ -97,6 +97,11 @@ function emitGameState(room, gameState) {
 function emitGameOver(room, winner) {
   io.sockets.in(room)
     .emit('gameOver', JSON.stringify({ winner }));
+}
+
+function emitScore(room, score) {
+  io.sockets.in(room)
+    .emit('score', JSON.stringify(gameScore));
 }
 
 io.listen(process.env.PORT || 3000);

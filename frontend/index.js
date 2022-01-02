@@ -9,7 +9,7 @@ socket.on('init', handleInit);
 socket.on('gameState', handleGameState);
 socket.on('gameOver', handleGameOver);
 socket.on('gameCode', handleGameCode);
-socket.on('score', handleScore);
+socket.on('gameScore', handleScore);
 socket.on('unknownCode', handleUnknownCode);
 socket.on('tooManyPlayers', handleTooManyPlayers);
 
@@ -94,6 +94,7 @@ function handleGameState(gameState) {
     return;
   }
   gameState = JSON.parse(gameState);
+  handleScore(gameState.players[0].snake.length)
   requestAnimationFrame(() => paintGame(gameState));
 }
 
@@ -113,8 +114,8 @@ function handleGameCode(gameCode) {
   gameCodeDisplay.innerText = gameCode;
 }
 
-function handleScore(score) {
-  scoreDisplay.innerText = score;
+function handleScore(gameScore) {
+  scoreDisplay.innerText = gameScore;
 }
 
 function handleUnknownCode() {
