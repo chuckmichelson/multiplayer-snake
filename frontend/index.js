@@ -61,6 +61,7 @@ function init() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   document.addEventListener('keydown', keydown);
+  console.log("added keydown event listener")
   gameActive = true;
 }
 

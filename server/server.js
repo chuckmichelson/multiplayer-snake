@@ -42,6 +42,7 @@ io.on('connection', client => {gameLoop
   }
 
   function handleNewGame() {
+    console.log("made it to handleNewGame")
     // let roomName = makeid(5);
     let roomName = 'AAAAA';
     clientRooms[client.id] = roomName;
