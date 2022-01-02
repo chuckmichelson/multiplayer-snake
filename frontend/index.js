@@ -3,6 +3,8 @@ const SNAKE_COLOUR = '#c2c2c2';
 //const FOOD_COLOUR = '#e66916';
 const FOOD_COLOUR = '#00FF00';
 
+console.log("Entering index.js")
+
 const socket = io('https://secret-bastion-80592.herokuapp.com/');
 
 socket.on('init', handleInit);
@@ -12,6 +14,8 @@ socket.on('gameCode', handleGameCode);
 socket.on('gameScore', handleScore);
 socket.on('unknownCode', handleUnknownCode);
 socket.on('tooManyPlayers', handleTooManyPlayers);
+
+console.log("sockets on")
 
 const gameScreen = document.getElementById('gameScreen');
 const initialScreen = document.getElementById('initialScreen');
