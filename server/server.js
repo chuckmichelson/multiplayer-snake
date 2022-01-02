@@ -102,7 +102,7 @@ function emitGameOver(room, winner) {
 
 function emitScore(room, score) {
   io.sockets.in(room)
-    .emit('score', JSON.stringify(gameScore));
+    .emit('gameScore', JSON.stringify(gameScore));
 }
 
 io.listen(process.env.PORT || 3000);
