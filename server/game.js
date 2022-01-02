@@ -50,6 +50,7 @@ function createGameState() {
 }
 
 function gameLoop(state) {
+  console.log("made it to gameLoop")
   if (!state) {
     return;
   }

@@ -66,6 +66,7 @@ function keydown(e) {
 }
 
 function paintGame(state) {
+  console.log("made it to paintGameState")
   ctx.fillStyle = BG_COLOUR;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -94,6 +95,8 @@ function handleInit(number) {
 }
 
 function handleGameState(gameState) {
+  console.log("made it to handleGameState")
+
   if (!gameActive) {
     return;
   }
