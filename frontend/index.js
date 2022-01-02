@@ -116,7 +116,7 @@ function handleGameOver(data) {
 }
 
 function handleGameCode(gameCode) {
-  gameCodeDisplay.innerText = gameCode;
+  //gameCodeDisplay.innerText = gameCode;
 }
 
 function handleScore(gameScore) {
