@@ -13,6 +13,7 @@ io.on('connection', client => {gameLoop
   client.on('joinGame', handleJoinGame);
 
   function handleJoinGame(roomName) {
+    console.log("made it to handleJoinGame")
     const room = io.sockets.adapter.rooms[roomName];
 
     let allUsers;
@@ -24,8 +25,10 @@ io.on('connection', client => {gameLoop
     if (allUsers) {
       numClients = Object.keys(allUsers).length;
     }
+    console.log(numClients)
 
     if (numClients === 0) {
+      console.log("numClients = 0")
       //client.emit('unknownCode');
       handleNewGame()
       return;
