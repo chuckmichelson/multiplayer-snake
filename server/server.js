@@ -26,7 +26,8 @@ io.on('connection', client => {gameLoop
     }
 
     if (numClients === 0) {
-      client.emit('unknownCode');
+      // client.emit('unknownCode');
+      handleNewGame()
       return;
     }
 
