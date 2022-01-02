@@ -34,14 +34,16 @@ io.on('connection', client => {gameLoop
     clientRooms[client.id] = roomName;
 
     client.join(roomName);
-    client.number = 2;
+    // client.number = 2;
+    client.number = numClients;
     client.emit('init', 2);
     
     startGameInterval(roomName);
   }
 
   function handleNewGame() {
-    let roomName = makeid(5);
+    // let roomName = makeid(5);
+    let roomName = 'AAAAA';
     clientRooms[client.id] = roomName;
     client.emit('gameCode', roomName);
 
