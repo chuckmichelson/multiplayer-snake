@@ -64,6 +64,7 @@ function gameLoop(state) {
   for (let i = 0; i < state.players.length; i++) {
     playerOne.pos.x += state.players[i].vel.x;
     playerOne.pos.y += state.players[i].vel.y;
+    console.log(playerOne.pos.x)
   }
 
 
