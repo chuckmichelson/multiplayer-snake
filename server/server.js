@@ -56,6 +56,7 @@ io.on('connection', client => {gameLoop
   }
 
   function handleKeydown(keyCode) {
+    console.log("handleKeydown")
     const roomName = clientRooms[client.id];
     if (!roomName) {
       return;
