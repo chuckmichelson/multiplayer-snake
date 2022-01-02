@@ -1,7 +1,7 @@
 const BG_COLOUR = '#231f20';
 const SNAKE_COLOUR = '#c2c2c2';
 //const FOOD_COLOUR = '#e66916';
-const FOOD_COLOUR = '#0000FF';
+const FOOD_COLOUR = '#00FF00';
 
 const socket = io('https://secret-bastion-80592.herokuapp.com/');
 
