@@ -80,7 +80,7 @@ function startGameInterval(roomName) {
     
     if (!winner) {
       emitGameState(roomName, state[roomName])
-      emitScore(roomName, game)
+      emitScore(roomName, gameScore)
     } else {
       emitGameOver(roomName, winner);
       state[roomName] = null;
