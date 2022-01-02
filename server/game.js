@@ -79,22 +79,27 @@ function gameLoop(state) {
     if (state.players[i].vel.y === -1 ) {
       nDOWN += 1
     }
-    var max_arrow_val = Math.max(nRIGHT, nLEFT, nUP, nDOWN)
-    if (max_arrow_val === nRIGHT ) {
-      playerOne.vel.x += 1;
-    }
-    if (max_arrow_val === nLEFT ) {
-      playerOne.vel.x -= 1;
-    }
-    if (max_arrow_val === nUP ) {
-      playerOne.vel.y += 1;
-    }
-    if (max_arrow_val === nDOWN ) {
-      playerOne.vel.y -= 1;
-    }
-    playerOne.pos.x += playerOne.vel.x;
-    playerOne.pos.y += playerOne.vel.y;
   }
+  var max_arrow_val = Math.max(nRIGHT, nLEFT, nUP, nDOWN)
+  if (max_arrow_val === nRIGHT ) {
+    playerOne.vel.x = 1;
+    playerOne.vel.y = 0;
+  }
+  if (max_arrow_val === nLEFT ) {
+    playerOne.vel.x = -1;
+    playerOne.vel.y = 0;
+  }
+  if (max_arrow_val === nUP ) {
+    playerOne.vel.x = 0;
+    playerOne.vel.y = 1;
+  }
+  if (max_arrow_val === nDOWN ) {
+    playerOne.vel.x = 0;
+    playerOne.vel.y = -1;
+  }
+  playerOne.pos.x += playerOne.vel.x;
+  playerOne.pos.y += playerOne.vel.y;
+
 
 
   if (playerOne.pos.x < 0 || playerOne.pos.x > GRID_SIZE || playerOne.pos.y < 0 || playerOne.pos.y > GRID_SIZE) {
