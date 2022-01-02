@@ -28,7 +28,15 @@ function createGameState() {
         {x: 2, y: 10},
         {x: 3, y: 10},
       ],
-    }, {
+    },],
+    food: {},
+    gridsize: GRID_SIZE,
+    score: 0,
+  };
+}
+
+function addPlayer() {
+  newPlayer =  {
       pos: {
         x: 18,
         y: 10,
@@ -42,12 +50,10 @@ function createGameState() {
         {x: 19, y: 10},
         {x: 18, y: 10},
       ],
-    }],
-    food: {},
-    gridsize: GRID_SIZE,
-    score: 0,
-  };
+    }
+  state.players += newPlayer
 }
+
 
 function gameLoop(state) {
   if (!state) {
