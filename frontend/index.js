@@ -9,6 +9,7 @@ socket.on('init', handleInit);
 socket.on('gameState', handleGameState);
 socket.on('gameOver', handleGameOver);
 socket.on('gameCode', handleGameCode);
+socket.on('score', handleScore);
 socket.on('unknownCode', handleUnknownCode);
 socket.on('tooManyPlayers', handleTooManyPlayers);
 
@@ -110,6 +111,10 @@ function handleGameOver(data) {
 
 function handleGameCode(gameCode) {
   gameCodeDisplay.innerText = gameCode;
+}
+
+function handleScore(score) {
+  scoreDisplay.innerText = score;
 }
 
 function handleUnknownCode() {
