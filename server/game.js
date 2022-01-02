@@ -8,7 +8,6 @@ module.exports = {
 
 function initGame() {
   const state = createGameState()
-  state = addPlayer()
   randomFood(state);
   return state;
 }
@@ -29,40 +28,31 @@ function createGameState() {
         {x: 2, y: 10},
         {x: 3, y: 10},
       ],
-    }, ],
+    }, {
+      pos: {
+        x: 18,
+        y: 10,
+      },
+      vel: {
+        x: 0,
+        y: 0,
+      },
+      snake: [
+        {x: 20, y: 10},
+        {x: 19, y: 10},
+        {x: 18, y: 10},
+      ],
+    }],
     food: {},
     gridsize: GRID_SIZE,
     score: 0,
   };
 }
 
-function addPlayer() {
-  newPlayer = {
-    pos: {
-      x: 18,
-      y: 10,
-    },
-    vel: {
-      x: 0,
-      y: 0,
-    },
-    snake: [
-      {x: 20, y: 10},
-      {x: 19, y: 10},
-      {x: 18, y: 10},
-    ],
-  }
-  state.players += newPlayer
-  return state
-}
-
 function gameLoop(state) {
   if (!state) {
     return;
   }
-
-  // score = state.players[0].snake.length
-  // document.getElementById('scoreDisplay').innerText = score
 
   const playerOne = state.players[0];
   const playerTwo = state.players[1];
@@ -104,16 +94,16 @@ function gameLoop(state) {
     playerOne.snake.shift();
   }
 
-  if (playerTwo.vel.x || playerTwo.vel.y) {
-    for (let cell of playerTwo.snake) {
-      if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
-        // return 1;
-      }
-    }
+  // if (playerTwo.vel.x || playerTwo.vel.y) {
+  //   for (let cell of playerTwo.snake) {
+  //     if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
+  //       // return 1;
+  //     }
+  //   }
 
-    playerOne.snake.push({ ...playerOne.pos });
-    playerOne.snake.shift();
-  }
+  //   playerOne.snake.push({ ...playerOne.pos });
+  //   playerOne.snake.shift();
+  // }
 
   return false;
 }
