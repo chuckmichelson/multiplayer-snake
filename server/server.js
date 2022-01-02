@@ -28,9 +28,6 @@ io.on('connection', client => {gameLoop
     if (numClients === 0) {
       client.emit('unknownCode');
       return;
-    } else if (numClients > 2) {
-      client.emit('tooManyPlayers');
-      return;
     }
 
     clientRooms[client.id] = roomName;
