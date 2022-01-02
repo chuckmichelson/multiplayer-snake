@@ -31,11 +31,13 @@ joinGameBtn.addEventListener('click', joinGame);
 
 
 function newGame() {
+  console.log("made it to NewGame")
   socket.emit('newGame');
   init();
 }
 
 function joinGame() {
+  console.log("made it to joinGame")
   const code = gameCodeInput.value;
   socket.emit('joinGame', code);
   init();
@@ -46,6 +48,7 @@ let playerNumber;
 let gameActive = false;
 
 function init() {
+  console.log("made it to init")
   initialScreen.style.display = "none";
   gameScreen.style.display = "block";
 
