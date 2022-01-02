@@ -55,7 +55,7 @@ function gameLoop(state) {
   }
 
   const playerOne = state.players[0];
-  const playerTwo = state.players[1];
+  // const playerTwo = state.players[1];
 
   var nUP = 0
   var nDOWN = 0
