@@ -95,6 +95,7 @@ function handleGameState(gameState) {
   }
   gameState = JSON.parse(gameState);
   handleScore(gameState.players[0].snake.length)
+  handleNumPlayers(gameState.players.length)
   requestAnimationFrame(() => paintGame(gameState));
 }
 
@@ -116,6 +117,10 @@ function handleGameCode(gameCode) {
 
 function handleScore(gameScore) {
   scoreDisplay.innerText = gameScore;
+}
+
+function handleNumPlayers(numPlayers) {
+  numPlayersDisplay.innerText = numPlayers;
 }
 
 function handleUnknownCode() {
