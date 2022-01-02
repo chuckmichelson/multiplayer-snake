@@ -28,7 +28,7 @@ io.on('connection', client => {gameLoop
     if (numClients === 0) {
       client.emit('unknownCode');
       return;
-    } else if (numClients > 2) {
+    } else if (numClients > 1) {
       client.emit('tooManyPlayers');
       return;
     }
@@ -80,6 +80,7 @@ function startGameInterval(roomName) {
     
     if (!winner) {
       emitGameState(roomName, state[roomName])
+      emitScore(roomName, game)
     } else {
       emitGameOver(roomName, winner);
       state[roomName] = null;
