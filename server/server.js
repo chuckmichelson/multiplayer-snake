@@ -34,8 +34,8 @@ io.on('connection', client => {gameLoop
     clientRooms[client.id] = roomName;
 
     client.join(roomName);
-    // client.number = 2;
-    client.number = numClients;
+    client.number = 2;
+    // client.number = numClients;
     client.emit('init', 2);
     
     startGameInterval(roomName);
