@@ -61,10 +61,39 @@ function gameLoop(state) {
   var nDOWN = 0
   var nLEFT = 0
   var nRIGHT = 0
+  // for (let i = 0; i < state.players.length; i++) {
+  //   playerOne.pos.x += state.players[i].vel.x;
+  //   playerOne.pos.y += state.players[i].vel.y;
+  // }
+
   for (let i = 0; i < state.players.length; i++) {
-    playerOne.pos.x += state.players[i].vel.x;
-    playerOne.pos.y += state.players[i].vel.y;
-    console.log(playerOne.pos.x)
+    if (state.players[i].vel.x === 1 ) {
+      nRIGHT += 1
+    }
+    if (state.players[i].vel.x === -1 ) {
+      nLEFT += 1
+    }
+    if (state.players[i].vel.y === 1 ) {
+      nUP += 1
+    }
+    if (state.players[i].vel.y === -1 ) {
+      nDOWN += 1
+    }
+    var max_arrow_val = Math.max(nRIGHT, nLEFT, nUP, nDOWN)
+    if (max_arrow_val === nRIGHT ) {
+      playerOne.vel.x += 1;
+    }
+    if (max_arrow_val === nLEFT ) {
+      playerOne.vel.x -= 1;
+    }
+    if (max_arrow_val === nUP ) {
+      playerOne.vel.y += 1;
+    }
+    if (max_arrow_val === nDOWN ) {
+      playerOne.vel.y -= 1;
+    }
+    playerOne.pos.x += playerOne.vel.x;
+    playerOne.pos.y += playerOne.vel.y;
   }
 
 
