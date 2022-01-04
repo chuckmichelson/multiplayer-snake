@@ -13,7 +13,6 @@ socket.on('gameOver', handleGameOver);
 socket.on('gameCode', handleGameCode);
 socket.on('gameScore', handleScore);
 socket.on('unknownCode', handleUnknownCode);
-socket.on('tooManyPlayers', handleTooManyPlayers);
 
 // console.log("sockets on")
 
@@ -137,11 +136,6 @@ function handleNumPlayers(numPlayers) {
 function handleUnknownCode() {
   reset();
   alert('Unknown Game Code')
-}
-
-function handleTooManyPlayers() {
-  reset();
-  alert('This game is already in progress');
 }
 
 function reset() {
