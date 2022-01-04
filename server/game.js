@@ -1,4 +1,14 @@
-const { GRID_SIZE } = require('./constants');
+// const { FRAME_RATE } = require('./constants');
+// const { CANVAS_WIDTH } = require('./constants');
+// const { CANVAS_HEIGHT } = require('./constants');
+// const { PLANCHETTE_WIDTH } = require('./constants');
+// const { PLANCHETTE_HEIGHT } = require('./constants');
+
+const FRAME_RATE = 10;
+const CANVAS_WIDTH = 838;
+const CANVAS_HEIGHT = 554;
+const PLANCHETTE_WIDTH = 120;
+const PLANCHETTE_HEIGHT = 120;
 
 module.exports = {
   initGame,
@@ -6,9 +16,12 @@ module.exports = {
   getUpdatedVelocity,
 }
 
+
+// state = initGame()
+
 function initGame() {
+  console.log("made it to initGame()")
   const state = createGameState()
-  randomFood(state);
   return state;
 }
 
@@ -16,37 +29,18 @@ function createGameState() {
   console.log("made it to createGameState")
   return {
     players: [{
-      pos: {
-        x: 3,
-        y: 10,
-      },
       vel: {
         x: 0,
         y: 0,
       },
-      snake: [
-        {x: 1, y: 10},
-        {x: 2, y: 10},
-        {x: 3, y: 10},
-      ],
-    }, {
+    },],
+    planchette: {
       pos: {
-        x: 18,
-        y: 10,
-      },
-      vel: {
-        x: 0,
-        y: 0,
-      },
-      snake: [
-        {x: 20, y: 10},
-        {x: 19, y: 10},
-        {x: 18, y: 10},
-      ],
-    }],
-    food: {},
-    gridsize: GRID_SIZE,
-    score: 0,
+        x: 100,
+        y: 100,
+      }
+    },
+    letters: "",
   };
 }
 
@@ -56,17 +50,11 @@ function gameLoop(state) {
     return;
   }
 
-  const playerOne = state.players[0];
-
+  // decision rule
   var nUP = 0
   var nDOWN = 0
   var nLEFT = 0
   var nRIGHT = 0
-  // for (let i = 0; i < state.players.length; i++) {
-  //   playerOne.pos.x += state.players[i].vel.x;
-  //   playerOne.pos.y += state.players[i].vel.y;
-  // }
-
   for (let i = 0; i < state.players.length; i++) {
     if (state.players[i].vel.x === 1 ) {
       nRIGHT += 1
@@ -84,72 +72,33 @@ function gameLoop(state) {
   var max_arrow_val = Math.max(nRIGHT, nLEFT, nUP, nDOWN)
   if (max_arrow_val != 0) {
     if (max_arrow_val === nRIGHT ) {
-      playerOne.vel.x = 1;
-      playerOne.vel.y = 0;
+      planchette.pos.x += 5;
+      planchette.pos.y += 0;
     }
     if (max_arrow_val === nLEFT ) {
-      playerOne.vel.x = -1;
-      playerOne.vel.y = 0;
+      planchette.pos.x += -5;
+      planchette.pos.y += 0;
     }
     if (max_arrow_val === nUP ) {
-      playerOne.vel.x = 0;
-      playerOne.vel.y = 1;
+      planchette.pos.x += 0;
+      planchette.pos.y += 5;
     }
     if (max_arrow_val === nDOWN ) {
-      playerOne.vel.x = 0;
-      playerOne.vel.y = -1;
+      planchette.pos.x += 0;
+      planchette.pos.y += -5;
     }
   }
-  playerOne.pos.x += playerOne.vel.x;
-  playerOne.pos.y += playerOne.vel.y;
 
-
-
-  if (playerOne.pos.x < 0 || playerOne.pos.x > GRID_SIZE || playerOne.pos.y < 0 || playerOne.pos.y > GRID_SIZE) {
-    return 2;
-  }
-
-
-
-  if (state.food.x === playerOne.pos.x && state.food.y === playerOne.pos.y) {
-    playerOne.snake.push({ ...playerOne.pos });
-    playerOne.pos.x += playerOne.vel.x;
-    playerOne.pos.y += playerOne.vel.y;
-    randomFood(state);
-  }
-
-
-  if (playerOne.vel.x || playerOne.vel.y) {
-    for (let cell of playerOne.snake) {
-      if (cell.x === playerOne.pos.x && cell.y === playerOne.pos.y) {
-        return 2;
-      }
-    }
-
-    playerOne.snake.push({ ...playerOne.pos });
-    playerOne.snake.shift();
-  }
-
+  // if (playerOne.pos.x < 0 || playerOne.pos.x > GRID_SIZE || playerOne.pos.y < 0 || playerOne.pos.y > GRID_SIZE) {
+  //   return 2;
+  // }
+  paintGame(state)
 
   return false;
 }
 
-function randomFood(state) {
-  food = {
-    x: Math.floor(Math.random() * GRID_SIZE),
-    y: Math.floor(Math.random() * GRID_SIZE),
-  }
-
-  for (let cell of state.players[0].snake) {
-    if (cell.x === food.x && cell.y === food.y) {
-      return randomFood(state);
-    }
-  }
-
-  state.food = food;
-}
-
 function getUpdatedVelocity(keyCode) {
+  console.log("made it to getUpdatedVelocity()")
   switch (keyCode) {
     case 32: { // space bar
       return { x: 0, y: 0 };

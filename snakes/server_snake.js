@@ -1,9 +1,3 @@
-const FRAME_RATE = 10;
-const CANVAS_WIDTH = 838;
-const CANVAS_HEIGHT = 554;
-const PLANCHETTE_WIDTH = 120;
-const PLANCHETTE_HEIGHT = 120;
-
 const io = require('socket.io')();
 const { initGame, gameLoop, getUpdatedVelocity } = require('./game');
 const { FRAME_RATE } = require('./constants');
@@ -21,6 +15,8 @@ io.on('connection', client => {gameLoop
   function handleJoinGame(roomName) {
     console.log("made it to handleJoinGame")
     const room = io.sockets.adapter.rooms[roomName];
+    console.log("Room:")
+    console.log(room)
 
     let allUsers;
     if (room) {
@@ -31,19 +27,12 @@ io.on('connection', client => {gameLoop
     if (allUsers) {
       numClients = Object.keys(allUsers).length;
     }
-    console.log("counted numClients")
+    console.log(numClients)
 
     if (numClients === 0) {
       console.log("numClients = 0")
       //client.emit('unknownCode');
       handleNewGame()
-      return;
-    }
-
-    if (numClients === 1) {
-      console.log("numClients = 1")
-      //client.emit('unknownCode');
-      //handleNewGame()
       return;
     }
 
@@ -72,7 +61,7 @@ io.on('connection', client => {gameLoop
   }
 
   function handleKeydown(keyCode) {
-    console.log("made it to handleKeydown")
+    alert("handleKeydown")
     const roomName = clientRooms[client.id];
     if (!roomName) {
       return;
@@ -116,13 +105,11 @@ function emitGameState(room, gameState) {
 }
 
 function emitGameOver(room, winner) {
-  console.log("made it to emitGameOver()")
   io.sockets.in(room)
     .emit('gameOver', JSON.stringify({ winner }));
 }
 
 function emitScore(room, score) {
-  console.log("made it to emitScore()")
   io.sockets.in(room)
     .emit('gameScore', JSON.stringify(gameScore));
 }
